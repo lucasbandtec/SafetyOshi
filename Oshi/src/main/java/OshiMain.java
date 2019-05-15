@@ -1,5 +1,9 @@
 
 import static java.lang.Thread.sleep;
+import oshi.hardware.GlobalMemory;
+import oshi.hardware.HardwareAbstractionLayer;
+import oshi.software.os.OSProcess;
+import oshi.util.FormatUtil;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,7 +19,8 @@ public class OshiMain {                //throws - Obriga a capturar a execução
     public static void main(String[] args) throws InterruptedException {
         InfoTotal info = new InfoTotal();
         InfoLeitura data = new InfoLeitura();
-
+        
+         
         System.out.println(info);
 
         System.out.println();
