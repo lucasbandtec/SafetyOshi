@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import static java.lang.Thread.sleep;
 import oshi.hardware.GlobalMemory;
 import oshi.hardware.HardwareAbstractionLayer;
@@ -16,18 +17,21 @@ import oshi.util.FormatUtil;
  * @author luqui
  */
 public class OshiMain {                //throws - Obriga a capturar a execução "InterruptedException
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         InfoTotal info = new InfoTotal();
         InfoLeitura data = new InfoLeitura();
         
+        
          
         System.out.println(info);
-
+        
         System.out.println();
-
+        
+        testeLog log = new testeLog();
+        
         while (true) {
-            System.out.println(data);
-            sleep(7000);
+            log.escreveLog(data.toString());
+            sleep(20000);
         }
     }
 }

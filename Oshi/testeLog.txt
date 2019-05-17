@@ -1,0 +1,26 @@
+mai 17, 2019 7:15:30 PM testeLog <init>
+INFORMAÇÕES: olha eu aqui
+mai 17, 2019 7:16:11 PM testeLog <init>
+INFORMAÇÕES: olha eu aqui
+mai 17, 2019 7:17:26 PM testeLog <init>
+INFORMAÇÕES: Processamento Atual: 29.262771815787005%
+Memória Ram Disponível: 4,5 GiB
+Armazenamento Disponível: 171,5 GiB
+ 
+mai 17, 2019 7:17:33 PM testeLog <init>
+INFORMAÇÕES: Processamento Atual: 10.520065979513282%
+Memória Ram Disponível: 4,5 GiB
+Armazenamento Disponível: 171,5 GiB
+ 
+mai 17, 2019 7:19:38 PM testeLog <init>
+INFORMAÇÕES: -------- Dados Gerais ---------
+Processador: Intel(R) Core(TM) i5-2450M CPU @ 2.50GHz
+Memória RAM Total: 7,9 GiB
+Armazenamento Total: 297,1 GiB
+Disco Local 1: Disco Fixo Local (C:)
+Tamanho do Disco 1: 215,3 GiB
+Disco Local 2: Disco Fixo Local (D:)
+Tamanho do Disco 2: 81,8 GiB
+Disco Local 3: Disco CD-ROM (E:)
+Tamanho do Disco 3: 0 bytes
+
