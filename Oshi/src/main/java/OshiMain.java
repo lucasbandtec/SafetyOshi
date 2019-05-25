@@ -25,7 +25,7 @@ public class OshiMain {                //throws - Obriga a capturar a execução
         InfoTotal info = new InfoTotal();
         InfoLeitura data = new InfoLeitura();
         
-        Database database = new Database();
+        Database database = new Database();;
         
         JdbcTemplate db = database.getConnection();
         
@@ -35,24 +35,25 @@ public class OshiMain {                //throws - Obriga a capturar a execução
         
         for(Maquina maquina:listaDePcs){
             db.update("INSERT INTO LOGS VALUES(CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?, ?)",
-                data.memoriaDisponível(),
-                data.memoriaRamDisponivel(),
                 data.processamento(),
+                data.memoriaDisponível()/ 1024 / 1024/ 1024,
+                data.memoriaRamDisponivel()/ 1024 / 1024,
                 maquina.getIdMaquina());
             
         }
         
         
-//         
-//        System.out.println(info);
-//        
-//        System.out.println();
-//        
-//        testeLog log = new testeLog();
-//        
-//        while (true) {
-//            log.escreveLog(data.toString());
-//            sleep(20000);
-//        }
+        System.out.println(data);
+        System.out.println();
+        
+        
+        
+       testeLog log = new testeLog();
+        
+        while (true) {
+            
+            log.escreveLog(data.toString());
+            sleep(10000);
+        }
     }
 }

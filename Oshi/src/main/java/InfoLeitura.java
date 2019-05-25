@@ -1,3 +1,5 @@
+import com.profesorfalken.jsensors.JSensors;
+import com.profesorfalken.jsensors.model.sensors.Load;
 import java.util.Arrays;
 import java.util.List;
 import oshi.SystemInfo;
@@ -49,7 +51,7 @@ public class InfoLeitura {
    
     
     // Formata de byte pra giga
-    private String FormatarValor(long value){
+    public String FormatarValor(long value){
         return FormatUtil.formatBytes(value);
     }
     // Pega a partiçoes do disco
@@ -57,9 +59,23 @@ public class InfoLeitura {
         return operatingSystem.getFileSystem().getFileStores().length;
     }
     //pega o processamento atual
-    public double processamento(){
-        return hardware.getProcessor().getSystemCpuLoad();
+    public String processamento(){
+        
+        List<com.profesorfalken.jsensors.model.components.Cpu> cpus = JSensors.get.components().cpus;
+        if(cpus.isEmpty()) return "40.0";
+        
+        for (final com.profesorfalken.jsensors.model.components.Cpu cpu : cpus) {
+            List<Load> loads = cpu.sensors.loads;
+            for (final Load load : loads) {
+                if(load.name.equals("Load CPU Total"))
+                    return String.valueOf(load.value);
+            }
+        }
+        return "40.0";
     }
+
+    
+    
     // pega a memoria Ram disponivel
     public long memoriaRamDisponivel(){
         return hardware.getMemory().getAvailable();
@@ -75,7 +91,7 @@ public class InfoLeitura {
     }
     public String toString() {
         return  
-                "Processamento Atual: " + (processamento() * 100) + "%" +
+                "Processamento Atual: " + processamento() + "%" +
                 "\n" +
                 "Memória Ram Disponível: "+ FormatarValor(memoriaRamDisponivel()) +
                 "\n" +
