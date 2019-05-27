@@ -43,8 +43,8 @@ public class OshiMain {                //throws - Obriga a capturar a execução
         }
         
         
+        System.out.println(info);
         System.out.println(data);
-        System.out.println();
         
         
         
